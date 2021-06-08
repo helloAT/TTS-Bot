@@ -54,7 +54,6 @@ async def on_message(message):
         await client.process_commands(message)
         return
 
-    # if message.guild.id in Server.server_dict and message.author.id == 207625855697027083:
     if message.guild.id in Server.server_dict:
         server = Server.server_dict[message.guild.id]
         if message.author.id == server.speaker and message.channel.id == server.input_channel:
@@ -74,8 +73,6 @@ async def on_voice_state_update(member, before, after):
             await server.voice_client.disconnect()
             server.speaker = None
             await client.get_channel(server.input_channel).send('User Disconnected: TTS is off')
-
-    #do whatever you want here
 
 
 @client.command(pass_context=True)
