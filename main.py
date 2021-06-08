@@ -110,6 +110,6 @@ async def tts(ctx, state):
 
 
 with open('secrets.txt', 'r') as f:
-    token = f.readline()
+    token = int(f.readline())
 
 client.run(token)
